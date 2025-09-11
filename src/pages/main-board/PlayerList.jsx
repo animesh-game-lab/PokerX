@@ -18,50 +18,50 @@ const players = [
         name: "Emily Carter",
         chips: "31,50,000",
         position: "top-left",
-        avatar: "/woman-profile.png"
+        avatar: "/player/player-1.png"
     },
     {
         name: "Alice William",
         chips: "31,50,000",
         position: "top-right",
-        avatar: "/blonde-woman.png"
+        avatar: "/player/player-2.png"
     },
     {
         name: "Tyler Brooks",
         chips: "31,50,000",
         position: "left",
-        avatar: "/man-with-beard.png"
+        avatar: "/player/player-3.png"
     },
     {
         name: "Mitchell",
         chips: "31,50,000",
         position: "right",
-        avatar: "/man-glasses.png"
+        avatar: "/player/player-4.png"
     },
     {
         name: "Daniel Scott",
         chips: "31,50,000",
         position: "bottom-left",
-        avatar: "/man-in-sharp-suit.png"
+        avatar: "/player/player-1.png"
     },
     {
         name: "Natalie Harris",
         chips: "31,50,000",
         position: "bottom-right",
-        avatar: "/business-woman.png"
+        avatar: "/player/player-2.png"
     },
     {
         name: "Ava Rey",
         chips: "31,50,000",
         position: "bottom-center-left",
-        avatar: "/woman-red-hair.png",
+        avatar: "/player/player-3.png",
         active: true
     },
     {
         name: "Brandon Lee",
         chips: "31,50,000",
         position: "bottom-center-right",
-        avatar: "/man-asian.jpg"
+        avatar: "/player/player-4.png"
     }
 ]
 
@@ -76,20 +76,20 @@ const PlayerCard = ({ player }) => (
         </div>
 
         <div
-            className={`flex items-center gap-2 bg-popover px-3 py-2 rounded-full border border-border min-w-[140px] ${
+            className={`flex items-center gap-2 bg-popover px-[14px] player-list-border-gradient rounded-full border border-border min-w-[140px] ${
                 player.active ? "bg-red-600/20 border-red-600" : ""
             }`}
         >
             <img
                 src={player.avatar || "/placeholder.svg"}
                 alt={player.name}
-                className="w-8 h-8 rounded-full object-cover"
+                className="w-14 h-14 rounded-full object-cover"
             />
-            <div>
-                <div className="text-[13px] font-medium whitespace-nowrap text-foreground">
+            <div className={`flex flex-col`}>
+                <div className="text-[20px] font-semibold whitespace-nowrap text-white">
                     {player.name}
                 </div>
-                <div className="text-xs text-gray-900 font-semibold">
+                <div className="text-[20px] font-semibold whitespace-nowrap text-white">
                     {player.chips}
                 </div>
             </div>

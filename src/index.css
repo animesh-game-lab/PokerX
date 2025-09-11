@@ -17,7 +17,11 @@ body {
     border-image: radial-gradient(95.83% 111.04% at 50% 54.52%, #FFFFFF 0%, #610000 83.78%, #FFFFFF 100%) 1;
 }
 
-
+.player-list-border-gradient {
+    border: 2px solid;
+    border-image-source: linear-gradient(104.89deg, rgba(255, 255, 255, 0.3) 7.08%, rgba(255, 255, 255, 0.15) 97.45%);
+    border-image-slice: 1;
+}
 /*card css*/
 
 .card {

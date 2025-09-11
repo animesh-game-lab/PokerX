@@ -1,5 +1,6 @@
 import React from 'react';
 import CommunityCard from "./CommunityCard.jsx";
+import HomeFramer from "../HomeFramer.jsx";
 
 const PokerTable = () => {
 
@@ -14,7 +15,8 @@ const PokerTable = () => {
              table-bg`
             } >
                 <div className="flex gap-2">
-                    <CommunityCard />
+                    {/*<CommunityCard />*/}
+                    <HomeFramer />
                 </div>
             </div>
         </>

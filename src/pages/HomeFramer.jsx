@@ -141,13 +141,7 @@ export default function HomeFramer() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-green-800 via-green-700 to-green-900 flex flex-col items-center justify-center p-8">
-            <div className="text-center mb-8">
-                <h1 className="text-4xl font-bold text-white mb-4">🃏 Poker Card Reveal</h1>
-                <p className="text-green-100 text-lg">Click to reveal your poker hand one card at a time!</p>
-            </div>
-
-            <div className="bg-green-900/50 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-green-600/30">
+            <div className="">
                 <div className="flex gap-[148px] mb-8 w-[770px] h-[230px]">
                     <AnimatePresence>
                         {cards.slice(0, visibleCards).map((card, index) => (
@@ -203,6 +197,5 @@ export default function HomeFramer() {
                     </motion.div>
                 )}
             </div>
-        </div>
     )
 }

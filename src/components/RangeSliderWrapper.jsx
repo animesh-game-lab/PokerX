@@ -36,7 +36,7 @@ export default function RangeSliderWrapper() {
     // }
 
     return (
-            < div className={`flex absolute bottom-full mb-6  flex-col items-center justify-center w-full max-w-sm pt-10 pb-6 px-6 space-y-6 bg-black  shadow-lg text-white font-sans bg-gradient-to-b from-black/5 to-black/10 border-2 border-solid [border-image:linear-gradient(104.88deg,_rgba(255,255,255,0.2)_31.75%,_rgba(255,255,255,0.15)_66.03%)_1] backdrop-blur-[24px] rounded-[24px]`}>
+            < div className={`flex absolute bottom-full mb-6  flex-col items-center justify-center w-full max-w-sm pt-10 pb-6 px-6 space-y-6 bg-black  shadow-lg text-white font-sans bg-gradient-to-b from-black/5 to-black/10 backdrop-blur-[24px] rounded-[24px]`}>
 
 
                 {/*<div className="mb-6 space-y-4">*/}
