@@ -17,11 +17,162 @@ body {
     border-image: radial-gradient(95.83% 111.04% at 50% 54.52%, #FFFFFF 0%, #610000 83.78%, #FFFFFF 100%) 1;
 }
 
-.player-list-border-gradient {
-    border: 2px solid;
-    border-image-source: linear-gradient(104.89deg, rgba(255, 255, 255, 0.3) 7.08%, rgba(255, 255, 255, 0.15) 97.45%);
-    border-image-slice: 1;
+
+.gradient-border-component {
+    position: absolute;
+    width: 225px;
+    height: 84px;
+    padding: 12px 28px 12px 14px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 80px;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px); /* Safari support */
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
+
+.gradient-border-component::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px; /* Border width */
+    background: linear-gradient(104.89deg, rgba(255, 255, 255, 0.3) 7.08%, rgba(255, 255, 255, 0.15) 97.45%);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+}
+
+/* Fallback for older browsers */
+@supports not (mask: linear-gradient(#fff 0 0)) {
+    .gradient-border-component {
+        border: 2px solid rgba(255, 255, 255, 0.25); /* Fallback border */
+    }
+
+    .gradient-border-component::before {
+        display: none;
+    }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+    .container {
+        background: rgba(0, 0, 0, 0.6); /* A more opaque background */
+    }
+}
+
+.red-gradient-border-component {
+    position: absolute;
+    width: 225px;
+    height: 84px;
+    padding: 12px 28px 12px 14px;
+    background: linear-gradient(180deg, rgba(242, 43, 43, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 80px;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    box-shadow: 0px 8px 68px 0px rgba(153, 29, 29, 0.95);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.red-gradient-border-component::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: radial-gradient(95.83% 111.04% at 50% 54.52%, #FFFFFF 0%, #610000 83.78%, #FFFFFF 100%);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+}
+
+/* Fallback for older browsers */
+@supports not (mask: linear-gradient(#fff 0 0)) {
+    .red-gradient-border-component {
+        border: 2px solid rgba(255, 255, 255, 0.8);
+    }
+
+    .red-gradient-border-component::before {
+        display: none;
+    }
+}
+
+
+/*border animation*/
+@keyframes shimmer-glow {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.gradient-border-component::before {
+    background-size: 300% 100%;
+    animation: shimmer-glow 4s linear forwards;
+}
+
+.red-gradient-border-component::before {
+    background: linear-gradient(
+            120deg,
+            #ffffff 0%,
+            rgba(255, 0, 0, 0.5) 40%,
+            #ffffff 60%,
+            rgba(255, 0, 0, 0.5) 100%
+    );
+    background-size: 300% 100%;
+    animation: shimmer-glow 4s linear forwards;
+}
+
+/* A modern CSS approach for a glassmorphism effect */
+.actions-gradients-border {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 24px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px); /* Safari support */
+}
+
+.actions-gradients-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px; /* Border width */
+    background: linear-gradient(104.89deg, rgba(255, 255, 255, 0.3) 7.08%, rgba(255, 255, 255, 0.15) 97.45%);
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+}
+
+/* Fallback for older browsers */
+@supports not (mask: linear-gradient(#fff 0 0)) {
+    .actions-gradients-border {
+        border: 2px solid rgba(255, 255, 255, 0.25); /* Fallback border */
+    }
+
+    .actions-gradients-border::before {
+        display: none;
+    }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(1px)) {
+    .container {
+        background: rgba(0, 0, 0, 0.6); /* A more opaque background */
+    }
+}
+
+
 /*card css*/
 
 .card {
@@ -38,6 +189,22 @@ body {
     border-radius: 6px;
     overflow: hidden;
 }
+
+.card-small {
+    position: absolute;
+    --cardWidth: 42px;
+    width: var(--cardWidth);
+    height: calc(var(--cardWidth) * 147 / 105);
+    background-image: url('/Card1.png');
+    background-size: 1100%;
+    background-position: 0 80%;
+    position: absolute;
+    box-shadow: 1px 1px 3px 0px black;
+    z-index: 2;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
 .card.xtra {
     box-shadow: 1px -1px 3px 0px black;
     z-index: 800 !important;
