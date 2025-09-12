@@ -1,6 +1,7 @@
-import React from 'react';
+// PlayerList.jsx
+import React, {  useEffect } from 'react';
 import PlayerCard from "../../components/PlayerCard.jsx";
-
+import {useCommon} from "../../hooks/UseCommon.js";
 
 const players = [
     {
@@ -55,13 +56,23 @@ const players = [
     // }
 ]
 
-
-
 const PlayerList = () => {
+    const { dealCards, playerCards } = useCommon();
+
+    // Call dealCards once when the component mounts to set up the hand
+    useEffect(() => {
+        dealCards(players);
+    }, []); // Empty dependency array means it runs only on mount
+
     return (
         <>
             {players.map((player, index) => (
-                <PlayerCard key={index} player={player} />
+                <PlayerCard
+                    key={index}
+                    player={player}
+                    // Pass the specific cards for this player
+                    cards={playerCards[player.name]}
+                />
             ))}
         </>
     );

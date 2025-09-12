@@ -2,7 +2,7 @@ import React from 'react';
 import {useCommon} from "../../hooks/UseCommon.js";
 import RangeSliderWrapper from "../../components/RangeSliderWrapper.jsx";
 const Actions = () => {
-    const{open, setOpen,  toggleDiv } = useCommon();
+    const{open, setOpen} = useCommon();
     const handleClick = () => {
         setOpen(!open);
     };

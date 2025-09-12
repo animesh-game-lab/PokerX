@@ -1,53 +1,43 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// Card.jsx
+"use client"
 
-const FoldedCard = () => {
-    const [isRevealed, setIsRevealed] = useState(false);
+import { motion } from "framer-motion"
 
-    const handleToggle = () => {
-        setIsRevealed(!isRevealed);
-    };
-
-    // Framer Motion variants for the flip animation
-    const cardBackVariants = {
-        hidden: { rotateY: 90, opacity: 0 },
-        visible: { rotateY: 0, opacity: 1, transition: { duration: 0.3 } },
-        exit: { rotateY: -90, opacity: 0, transition: { duration: 0.3 } },
-    };
-
-    const cardFrontVariants = {
-        hidden: { rotateY: -90, opacity: 0 },
-        visible: { rotateY: 0, opacity: 1, transition: { duration: 0.3, delay: 0.3 } },
-    };
-
+export default function Card({ card, index, isVisible }) {
     return (
-        <div className="flex ">
-            <div className="relative cursor-pointer [perspective:1000px] [transform-style:preserve-3d]"
-                onClick={handleToggle}
-            >
-                <AnimatePresence mode="wait">
-                    {!isRevealed ? (
-                        <motion.div
-                            key="card-back"
-                            className="absolute inset-0 card-small"
-                            variants={cardBackVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                        />
-                    ) : (
-                        <motion.div
-                            key="card-front"
-                            className="absolute inset-0 card-small"
-                            variants={cardFrontVariants}
-                            initial="hidden"
-                            animate="visible"
-                        />
-                    )}
-                </AnimatePresence>
-            </div>
-        </div>
-    );
-};
+        <motion.div
+            className="relative [transform-style:preserve-3d]"
+            initial={{
+                rotateY: 180,
+            }}
+            animate={{
+                rotateY: isVisible ? 0 : 180,
+                x: 0,
+                opacity: 1,
+            }}
+            transition={{
+                duration: 0.8,
+                delay: index * 0.2,
+                type: "spring",
+                stiffness: 100,
+            }}
+        >
+            {/* Card Back */}
+            <div
+                className="absolute inset-0 card back"
+                style={{
+                    backfaceVisibility: "hidden",
+                    transform: "rotateY(180deg)",
+                }}
+            />
 
-export default FoldedCard;
+            {/* Card Front */}
+            <div
+                className={`absolute inset-0 card ${card.variants}`}
+                style={{
+                    backfaceVisibility: "hidden",
+                }}
+            />
+        </motion.div>
+    )
+}

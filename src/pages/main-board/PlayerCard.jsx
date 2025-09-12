@@ -1,11 +1,11 @@
 // PlayerCard.jsx
 "use client"
-import React, { useContext } from "react";
-import {useCommon} from "../hooks/UseCommon.js";
-import Card from "./FoldedCard.jsx"; // Make sure this path is correct
+import React from "react";
+import Card from '../../components/FoldedCard.jsx';
+import {useCommon} from "../../hooks/UseCommon.js"; // Make sure this path is correct
 
 const getPositionClasses = position => {
-    // ... your positions logic
+    // ... positions logic
     const positions = {
         "top-left": "absolute top-[10%] left-[0%]",
         "top-right": "absolute top-[10%] right-[0%]",
